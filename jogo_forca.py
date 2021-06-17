@@ -4,6 +4,10 @@ Jogo da Força
 import os
 from random import choice
 
+import pytest
+
+from validates import nome_arquivo
+
 board = ['''
 
 >>>>>>>>>>Hangman<<<<<<<<<< 
@@ -132,8 +136,16 @@ def buscar_palavra(nome_arquivo):
     return palavra
 
 
+def testa_nome_arquivo(arquivo):
+    assert nome_arquivo(arquivo[-12::]) == 'palavras.txt'
+
+
 arquivo = os.path.abspath(os.path.dirname(__file__)) + "\\palavras.txt"
-print(arquivo)
+
+if testa_nome_arquivo(arquivo) == 'ERRO':
+    print('Ocorreu erro na definição do nome do arquivo')
+
+# print(arquivo)
 palavra_secreta = buscar_palavra(arquivo)
 jogo = JogoDaForca(palavra_secreta)
 
