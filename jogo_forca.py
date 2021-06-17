@@ -147,4 +147,4 @@ if jogo.verficar_jogador_venceu():
     print("\nParabéns!\nJogador venceu")
 else:
     print("\nDeu ruim!\nJogador perdeu")
-print(f"Palavra secreta: {jogo.palavra}\n")
+print(f"A Palavra secreta é: {jogo.palavra}\n")
